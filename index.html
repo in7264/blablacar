@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Пошук попутників</title>
+</head>
+<body>
+
+    <div class="tabs">
+        <button onclick="openTab('addTripTab')">Додати поїздку</button>
+        <button onclick="openTab('searchTab')">Пошук поїздок</button>
+        <button onclick="openTab('allTripsTab')">Всі поїздки</button>
+    </div>
+
+    <div id="addTripTab" class="tab-content">
+        <h2>Додати поїздку</h2>
+        <form onsubmit="addTrip(event)">
+            <label for="departure">Місце відправлення:</label>
+            <input type="text" id="departure" required>
+
+            <label for="destination">Місце призначення:</label>
+            <input type="text" id="destination" required>
+
+            <label for="departureTime">Час відправлення:</label>
+            <input type="datetime-local" id="departureTime" required>
+
+            <label>Додаткові опції:</label>
+            <label for="smokingAllowed">Можна курити в салоні</label>
+            <input type="checkbox" id="smokingAllowed">
+
+            <label for="petsAllowed">Можна з тваринами в салоні</label>
+            <input type="checkbox" id="petsAllowed">
+
+            <button type="submit">Додати поїздку</button>
+        </form>
+    </div>
+
+    <div id="searchTab" class="tab-content">
+        <h2>Пошук поїздок</h2>
+        <div id="searchFilters">
+            <label for="departureSearch">Місце відправлення:</label>
+            <input type="text" id="departureSearch">
+    
+            <label for="destinationSearch">Місце призначення:</label>
+            <input type="text" id="destinationSearch">
+    
+            <label for="smokingSearch">Куріння дозволено:</label>
+            <input type="checkbox" id="smokingSearch">
+    
+            <label for="petsSearch">Тварини дозволено:</label>
+            <input type="checkbox" id="petsSearch">
+    
+            <button onclick="searchTrips()">Шукати</button>
+        </div>
+        <div id="searchResults"></div>
+    </div>
+
+    <div id="allTripsTab" class="tab-content">
+        <h2>Всі поїздки</h2>
+        <div id="allTrips">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
